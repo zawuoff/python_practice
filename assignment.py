@@ -97,7 +97,7 @@ def can_enter_dungeon(level, has_key, is_banned):
     logical operators (and, or, not, >, <, etc).
     """
     # Write your code here
-    return (level >= 10) and (has_key == True) and (is_banned == False)
+    return (level >= 10) and (has_key) and (not is_banned)
 
 
 def compare_equipment(item1_power, item2_power):
@@ -135,7 +135,7 @@ def damage_calculator(base_damage, weapon_bonus, is_critical):
 
     # --- BUGGY CODE STARTS HERE ---
     total = base_damage + weapon_bonus
-    if is_critical == True:  # <--- Hint: Look closely at this line
+    if is_critical:  # <--- Hint: Look closely at this line
         total = total * 2
     # --- BUGGY CODE ENDS HERE ---
 
@@ -177,7 +177,7 @@ def run_tests():
     # the level and key, but ARE banned. (Should return False)
     test_var_2 = can_enter_dungeon(11, True, True)
 
-    if test_var_2 == False:
+    if not test_var_2:
         print("PASS")
     else:
         print("FAIL")
